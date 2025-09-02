@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editor Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Video EditPro</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="login.html">Login</a></li> <!-- Login link redirects to login page -->
+            </ul>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h2>Welcome to Video EditPro</h2>
+        <p>Your all-in-one solution for powerful and easy video editing!</p>
+        <!-- Upload Button -->
+        <button id="uploadBtn">Upload Video</button>
+        <!-- Hidden file input for video upload -->
+        <input type="file" id="videoUpload" accept="video/*" style="display: none;">
+    </section>
+    <!-- Features Section -->
+    <section id="features">
+        <div class="feature">
+            <h3>Easy Editing</h3>
+            <p>Edit your videos in just a few clicks!</p>
+        </div>
+        <div class="feature">
+            <h3>Advanced Tools</h3>
+            <p>Powerful features for precise video editing.</p>
+        </div>
+        <div class="feature">
+            <h3>Share Instantly</h3>
+            <p>Share your edited videos with ease.</p>
+        </div>
+    </section>
+
+    <!-- Video Editor Section -->
+    <!-- Video Editor Section -->
+<section id="video-editor">
+    <h2>Start Editing</h2>
+    <div class="editor-container">
+        <div class="video-preview">
+            <h3>Preview</h3>
+            <video id="videoPreview" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="editor-tools">
+            <button class="tool-btn">Trim</button>
+            <button class="tool-btn">Cut</button>
+            <button class="tool-btn">Apply Effects</button>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const uploadBtn = document.getElementById('uploadBtn');
+    const videoUpload = document.getElementById('videoUpload');
+    const videoPreview = document.getElementById('videoPreview');
+
+    // Open the file input dialog when the upload button is clicked
+    uploadBtn.addEventListener('click', function() {
+        videoUpload.click();
+    });
+
+    // Handle video file selection
+    videoUpload.addEventListener('change', function(event) {
+        const file = event.target.files[0]; // Get the first selected file
+
+        // Check if a valid video file is selected
+        if (file && file.type.startsWith('video')) {
+            const videoURL = URL.createObjectURL(file); // Create a URL for the selected video
+            videoPreview.src = videoURL; // Set the video element's source to the selected video
+            videoPreview.load(); // Load the video into the preview element
+        } else {
+            alert("Please select a valid video file.");
+        }
+    });
+});
+
+</script>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Video EditPro. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

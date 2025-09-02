@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Video EditPro</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div id="login-page" class="active">
+        <div class="login-container">
+            <h2>Login to Video EditPro</h2>
+            <form id="loginForm" action="javascript:void(0);">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Wait for the page to load completely
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener to the form submission
+            const loginForm = document.getElementById('loginForm');
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+
+                // Get the email and password values from the input fields (though you won't be using them)
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Since we don't need to validate the email, we simply redirect to the video editing page
+                window.location.href = "index.html"; // Redirect to the video editing page
+            });
+        });
+    </script>
+</body>
+
+</html>
